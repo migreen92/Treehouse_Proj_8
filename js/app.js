@@ -17,10 +17,10 @@ let fetchData = fetch(apiURL)
     displayEmployees(results);
     console.log(results)
   })
-  .catch(err => console.log("Help, I've falled and can't get up", err));
+  .catch(err => console.log("Help, I've fallen and can't get up", err));
 
 function displayEmployees(employeeData) {
-  let employees = employeeData;
+  employees = employeeData;
   let employeeHTML = ``;
   employees.forEach((employee, index) => {
     let name = employee.name;
@@ -45,31 +45,22 @@ function displayEmployees(employeeData) {
 // -------- CREATE EMPLOYEE POPUP -------- //
 
 function displayPopup(index) {
-  // popup.setAttribute("class", "popup-body");
-  // popup.style.display = "block";
-
-  let {
-        name, dob, phone, email, location: {
-          city, street, state, postcode
-        },
-      picture
-    } = employees[index];
+  let { name, dob, phone, email, location: { city, street, state, postcode }, picture } = employees[index];
   let date = new Date(dob.date);
   const popupHTML =  `
     <img class="employee-pic" src="${picture.large}">
     <div class="employee-text">
-      <h3 class="name">${name} ${name}</h3>
+      <h3 class="name">${name.first} ${name.last}</h3>
         <a class="email" href="mailto:${email}" target="_blank">${email}</a>
       <p class="city">${city}</p>
       <hr>
-      <a>${phone}</a>
+      <p>${phone}</p>
       <p class="address">${street.number} ${street.name}, ${state} ${postcode}</p>
-      <p>Birthday:
-        ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}
+      <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}
       </p>
     </div>
   `;
-  overlay.classlist.remove("hidden");
+  overlay.classList.remove("hidden");
   popupContainer.innerHTML = popupHTML;
 }
 
@@ -80,5 +71,4 @@ directoryBody.addEventListener("click", (e) => {
       const index = employee.getAttribute("data-index");
       displayPopup(index);
     }
-  }
-);
+});
