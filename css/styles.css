@@ -8,7 +8,7 @@
 .directory-body {
   margin:auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(275px, 350px));
+  grid-template-columns: repeat(auto-fit, minmax(275px, 400px));
   justify-content: center;
   grid-row-gap: 30px;
   grid-column-gap: 20px;
@@ -34,13 +34,16 @@
 }
 
 .overlay {
-  display: none;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background-color: rgba(123, 194, 188, .2);
+}
+
+.hidden {
+    display: none;
 }
 
 .popup {
