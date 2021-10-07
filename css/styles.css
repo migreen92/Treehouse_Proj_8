@@ -6,9 +6,9 @@ p, a {
   font-size: 18px;
 }
 body {
+  margin-bottom: 3rem;
   padding: 10px;
   position: relative;
-  background: rgb(2,0,36);
   background: linear-gradient(rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
 
@@ -20,7 +20,7 @@ body {
   margin: 20px 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  text-align: center;
 }
 
 .header h1 {
@@ -129,8 +129,10 @@ hr {
 }
 
 @media screen and (min-width: 1024px) {
+.header{
   margin: 20px 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  }
 }
