@@ -7,7 +7,7 @@ const overlay = document.querySelector(".overlay");
 const popup = document.querySelector(".popup");
 const popupContainer = document.querySelector(".popup-body");
 const popupClose = document.querySelector(".popup-close");
-
+const searchField = document.getElementById("search");
 // -------- FETCH 12 EMPLOYEES -------- //
 
 let fetchData = fetch(apiURL)
@@ -32,7 +32,7 @@ function displayEmployees(employeeData) {
     <div class="employee" data-index="${index}">
       <img class="employee-pic" src="${picture.large}">
         <div class="employee-text">
-          <h3 class="name">${name.first} ${name.last}</h3>
+          <h2 class="name">${name.first} ${name.last}</h2>
           <a class="email" href="mailto:${email}" target="_blank">${email}</a>
           <p class="city">${city}</p>
         </div>
@@ -50,13 +50,13 @@ function displayPopup(index) {
   const popupHTML =  `
     <img class="employee-pic" src="${picture.large}">
     <div class="employee-text">
-      <h3 class="name">${name.first} ${name.last}</h3>
+      <h2 class="name">${name.first} ${name.last}</h2>
         <a class="email" href="mailto:${email}" target="_blank">${email}</a>
       <p class="city">${city}</p>
       <hr>
       <p>${phone}</p>
       <p class="address">${street.number} ${street.name}, ${state} ${postcode}</p>
-      <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}
+      <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}
       </p>
     </div>
   `;
@@ -72,3 +72,26 @@ directoryBody.addEventListener("click", (e) => {
       displayPopup(index);
     }
 });
+
+// -------- CLOSE POPUP -------- //
+popupClose.addEventListener('click', () => {
+  overlay.classList.add('hidden');
+});
+
+// -------- SEARCH FOR EMPLOYEES -------- //
+
+function employeeSearch() {
+  let searchValue = searchField.value.toLowerCase();
+  let employee = document.querySelectorAll('.employee');
+  let employeeInfo = document.querySelectorAll('.employee-text');
+  for (let i = 0; i < employee.length; i++) {
+    let title = employeeInfo[i].getElementsByTagName("h2")[0];
+    let name = title.textContent;
+    if (name.toLowerCase().indexOf(searchValue) > -1) {
+      employee[i].style.display = "";
+    } else {
+      employee[i].style.display = "none";
+    }
+  }
+};
+searchField.addEventListener("keyup", (e) => employeeSearch());

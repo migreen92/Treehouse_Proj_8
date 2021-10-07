@@ -1,29 +1,66 @@
-.body {
+* {
+  font-family: 'Crimson Text', serif;
+  color: #373d42;
+}
+p, a {
+  font-size: 18px;
+}
+body {
+  padding: 10px;
   position: relative;
-  max-width: 1200px;
-  margin: 25px;
+  background: rgb(2,0,36);
+  background: linear-gradient(rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  height: 100vh;
 }
 
+.employee .employee-text p {
+    margin-top: .25em;
+}
+
+.header {
+  margin: 20px 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header h1 {
+  color: #fff;
+  text-shadow: 3px 3px rgba(0,212,255,.5);
+}
+
+#search {
+  width: 250px;
+  height: 50px;
+  margin-top: 20px;
+  padding-left: 25px;
+}
 
 .directory-body {
-  margin:auto;
+  margin:40px auto 0px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(275px, 400px));
   justify-content: center;
   grid-row-gap: 30px;
-  grid-column-gap: 20px;
+  grid-column-gap: 30px;
 }
 
 .employee {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  padding-left: 20px;
   border: 1px solid lightgray;
   border-radius: 5px;
   background-color: #fff;
+  transition: all .2s ease-in-out;
+}
+
+.employee:hover {
+  transform: scale(1.1);
 }
 
 .employee-pic {
-  padding: 25px 15px;
+  padding: 15px;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -39,7 +76,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(123, 194, 188, .2);
+  background-color: rgba(2,0,36,.5);
 }
 
 .hidden {
@@ -53,19 +90,29 @@
     background: #fff;
     border:1px solid rgba(123, 194, 188);
     border-radius: 5px;
-    padding: 2rem;
+}
+
+hr {
+  background-color: rgba(9,9,121,1);
+  height: 2px;
 }
 
 .popup-close {
+  padding: 5px 10px;
   position: absolute;
   right: 2rem;
   top: 2rem;
+  color: #fff;
+  background-color: rgba(9,9,121,1);
+  border-radius: 50%;
 }
 
 .popup-body {
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: rgba(0,212,255,.2);
 }
 
 .popup-body img{
