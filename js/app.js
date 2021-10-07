@@ -73,6 +73,7 @@ directoryBody.addEventListener("click", (e) => {
       const index = employee.getAttribute("data-index");
       displayPopup(index);
 
+// -------- NAVIGATE BETWEEN POPUPS -------- //
     let employeeNumber = parseInt(index);
 
     previous.addEventListener('click', e => {
