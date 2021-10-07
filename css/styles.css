@@ -1,6 +1,6 @@
 * {
   font-family: 'Crimson Text', serif;
-  color: #373d42;
+
 }
 p, a {
   font-size: 18px;
@@ -10,7 +10,6 @@ body {
   position: relative;
   background: rgb(2,0,36);
   background: linear-gradient(rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-  height: 100vh;
 }
 
 .employee .employee-text p {
@@ -20,8 +19,8 @@ body {
 .header {
   margin: 20px 50px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .header h1 {
@@ -56,7 +55,8 @@ body {
 }
 
 .employee:hover {
-  transform: scale(1.1);
+  transform:translateY(-10px) scale(1.1);
+  /* transform: ; */
 }
 
 .employee-pic {
@@ -71,12 +71,14 @@ body {
 }
 
 .overlay {
+  display: flex;
+  flex-direction: row;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(2,0,36,.5);
+  background-color: rgba(2,0,36,.8);
 }
 
 .hidden {
@@ -124,4 +126,11 @@ hr {
   align-items: center;
   width: 80%;
   text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  margin: 20px 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

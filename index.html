@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3066793bfc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
@@ -25,12 +26,19 @@
     </div>
     <!-- POPUP WINDOW -->
     <div class="overlay hidden">
+      <span style="font-size:70px;margin-top:40vh;margin-left:auto;color:rgba(0,212,255,1)">
+        <i class="fas fa-arrow-alt-circle-left previous"></i>
+      </span>
       <div class="popup">
         <button class="popup-close">X</button>
         <div class="popup-body">
           <!-- POPUP CONTENT ADDED VIA JS -->
         </div>
       </div>
+
+      <span style="font-size:70px;margin-top:40vh;margin-right:auto;color:rgba(0,212,255,1)">
+        <i class="fas fa-arrow-alt-circle-right next"></i>
+      </span>
     </div>
     <script src="js/app.js"></script>
   </body>

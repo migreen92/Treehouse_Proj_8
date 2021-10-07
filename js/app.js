@@ -8,6 +8,8 @@ const popup = document.querySelector(".popup");
 const popupContainer = document.querySelector(".popup-body");
 const popupClose = document.querySelector(".popup-close");
 const searchField = document.getElementById("search");
+const previous = document.querySelector(".previous");
+const next = document.querySelector(".next");
 // -------- FETCH 12 EMPLOYEES -------- //
 
 let fetchData = fetch(apiURL)
@@ -70,8 +72,28 @@ directoryBody.addEventListener("click", (e) => {
       const employee = e.target.closest(".employee");
       const index = employee.getAttribute("data-index");
       displayPopup(index);
-    }
-});
+
+    let employeeNumber = parseInt(index);
+
+    previous.addEventListener('click', e => {
+        if (employeeNumber > 0) {
+          employeeNumber -= 1;
+          displayPopup(employeeNumber);
+        } else if (employeeNumber === 0) {
+          employeeNumber = 11;
+          displayPopup(employeeNumber);
+        }
+      });
+    next.addEventListener('click', e => {
+        if (employeeNumber < 11) {
+          employeeNumber += 1;
+          displayPopup(employeeNumber);
+        } else if (employeeNumber === 11) {
+          employeeNumber = 0;
+          displayPopup(employeeNumber);
+        }
+      });
+}});
 
 // -------- CLOSE POPUP -------- //
 popupClose.addEventListener('click', () => {
